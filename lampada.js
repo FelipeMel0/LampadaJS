@@ -13,9 +13,11 @@ function botoesLigaDesliga(ligarEstado, desligarEstado) {
     desligar.disabled = desligarEstado
 }
 
-function lampadaQuebrada() {
-    return document.getElementById("lampada").src.indexOf("quebrada") !== -1
-}
+// function lampadaQuebrada() {
+//     return document.getElementById("lampada").src.indexOf("quebrada") !== -1
+// }
+
+const lampadaQuebrada = () => lampada.src.indexOf("quebrada") !== -1
 
 function ligarLampada() {
     // const lampada = document.getElementById("lampada")
@@ -44,9 +46,11 @@ function quebrarLampada() {
     }
 }
 
-function lampadaDesligada() {
-    return lampada.src.includes("desligada")
-}
+// function lampadaDesligada() {
+//     return lampada.src.includes("desligada")
+// }
+
+const lampadaDesligada = () => lampada.src.includes("desligada")
 
 function trocarImagem() {
     if (lampadaDesligada()) {
