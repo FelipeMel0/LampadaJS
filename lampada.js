@@ -1,8 +1,12 @@
 "use strict"
 
+const lampada = document.getElementById("lampada")
+
+let idInterval
+
 //Funções
 
-function botoesLigaDesliga (ligarEstado, desligarEstado){
+function botoesLigaDesliga(ligarEstado, desligarEstado) {
     const ligar = document.getElementById("ligar")
     const desligar = document.getElementById("desligar")
     ligar.disabled = ligarEstado
@@ -14,8 +18,8 @@ function lampadaQuebrada() {
 }
 
 function ligarLampada() {
-    const lampada = document.getElementById("lampada")
-  
+    // const lampada = document.getElementById("lampada")
+
     if (!lampadaQuebrada()) {
         lampada.src = "img/ligada.jpg"
         botoesLigaDesliga(true, false)
@@ -23,8 +27,8 @@ function ligarLampada() {
 }
 
 function desligarLampada() {
-    const lampada = document.getElementById("lampada")
-    
+    // const lampada = document.getElementById("lampada")
+
     if (!lampadaQuebrada()) {
         lampada.src = "img/desligada.jpg"
         botoesLigaDesliga(false, true)
@@ -32,12 +36,38 @@ function desligarLampada() {
 }
 
 function quebrarLampada() {
-    const lampada = document.getElementById("lampada")
+    // const lampada = document.getElementById("lampada")
 
     if (!lampadaQuebrada()) {
         lampada.src = "img/quebrada.jpg"
         botoesLigaDesliga(true, true)
     }
+}
+
+function lampadaDesligada() {
+    return lampada.src.includes("desligada")
+}
+
+function trocarImagem() {
+    if (lampadaDesligada()) {
+        ligarLampada()
+    } else {
+        desligarLampada()
+    }
+}
+
+function piscar() {
+    const piscar = document.getElementById("piscar")
+
+    if (piscar.textContent == "Piscar") {
+        piscar.textContent = "Parar"
+        idInterval = setInterval(trocarImagem, 150)
+
+    } else {
+        clearInterval(idInterval)
+        piscar.textContent = "Piscar"
+    }
+
 }
 
 //Eventos
@@ -56,4 +86,7 @@ document.getElementById("lampada")
 
 document.getElementById("lampada")
     .addEventListener("mouseleave", desligarLampada)
+
+document.getElementById("piscar")
+    .addEventListener("click", piscar)
 
