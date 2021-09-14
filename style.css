@@ -25,7 +25,6 @@ main{
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     padding-top: 40px;
 }
@@ -34,10 +33,24 @@ button{
     width: 100px;
     height: 40px;
     cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 15px;
 }
 
 footer{
     height: 50px;
     justify-content: center;
     align-items: flex-start;
+}
+
+.piscar{
+    background-color: yellowgreen;
+    border: 1px solid rgb(0, 88, 34);
+}
+
+.parar{
+    background-color: rgb(226, 16, 16);
+    color: white;
+    border: 1px solid rgb(88, 0, 0);
 }

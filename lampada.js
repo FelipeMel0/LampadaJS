@@ -65,11 +65,13 @@ function piscar() {
 
     if (piscar.textContent == "Piscar") {
         piscar.textContent = "Parar"
+        piscar.className = "parar"
         idInterval = setInterval(trocarImagem, 150)
 
     } else {
         clearInterval(idInterval)
         piscar.textContent = "Piscar"
+        piscar.className = "piscar"
     }
 
 }
